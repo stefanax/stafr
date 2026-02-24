@@ -1,0 +1,24 @@
+<svg width="180mm" height="30mm" viewBox="0 0 180 30"
+     xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Top Ornament Placeholder -->
+  <rect x="0" y="0" width="180" height="5"
+        fill="none" stroke="black" stroke-width="0.2"/>
+
+  <!-- Name -->
+  <text x="10" y="15"
+        font-size="8"
+        dominant-baseline="middle">
+    {{NAME}}
+  </text>
+
+  <!-- Bottom Metadata -->
+  <text x="10" y="25" font-size="4">
+    Fabric: {{FABRIC_METERS}}m @ {{FABRIC_WIDTH}}cm
+  </text>
+
+  <text x="150" y="25" font-size="4">
+    {{COMPLEXITY}}
+  </text>
+
+</svg>
