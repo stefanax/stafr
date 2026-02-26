@@ -9,9 +9,28 @@ if (args.Length != 3)
     return;
 }
 
-var inputPath = args[0];
-var templatePath = args[1];
-var outputPath = args[2];
+var inputPath = Path.GetFullPath(args[0]);
+var templatePath = Path.GetFullPath(args[1]);
+var outputPath = Path.GetFullPath(args[2]);
+
+if (!File.Exists(inputPath))
+{
+    Console.WriteLine($"Input YAML file does not exist: {inputPath}");
+    return;
+}
+
+if (!File.Exists(templatePath))
+{
+    Console.WriteLine($"Template SVG file does not exist: {templatePath}");
+    return;
+}
+
+var outputDirectory = Path.GetDirectoryName(outputPath) ?? Directory.GetCurrentDirectory();
+if (!Directory.Exists(outputDirectory))
+{
+    Console.WriteLine($"Output directory does not exist: {outputDirectory}");
+    return;
+}
 
 var yaml = File.ReadAllText(inputPath);
 
@@ -26,7 +45,6 @@ var svgTemplate = File.ReadAllText(templatePath);
 var renderer = new SvgTemplateRenderer();
 var result = renderer.Render(svgTemplate, metadata);
 
-Directory.CreateDirectory(Path.GetDirectoryName(outputPath)!);
 File.WriteAllText(outputPath, result);
 
 Console.WriteLine($"Generated: {outputPath}");
