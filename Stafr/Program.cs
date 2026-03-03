@@ -32,28 +32,20 @@ if (!Directory.Exists(outputDirectory))
     return;
 }
 
-var yaml = File.ReadAllText(inputPath);
+var yaml = await File.ReadAllTextAsync(inputPath);
 
 var deserializer = new DeserializerBuilder()
     .WithNamingConvention(HyphenatedNamingConvention.Instance)
     .Build();
 
-try
-{
-    var metadata = deserializer.Deserialize<PatternMetadata>(yaml);
-}
-catch (Exception e)
-{
-    Console.WriteLine(e);
-    Console.WriteLine("Inner: " + e.InnerException);
-    throw;
-}
+var metadata = deserializer.Deserialize<PatternMetadata>(yaml);
+
 
 var svgTemplate = File.ReadAllText(templatePath);
 
 var renderer = new SvgTemplateRenderer();
-//var result = renderer.Render(svgTemplate, metadata);
+var result = renderer.Render(svgTemplate, metadata);
 
-//File.WriteAllText(outputPath, result);
+await File.WriteAllTextAsync(outputPath, result);
 
 Console.WriteLine($"Generated: {outputPath}");

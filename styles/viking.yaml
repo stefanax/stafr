@@ -1,0 +1,26 @@
+name: "Viking"
+version: 1
+
+fonts:
+  heading:
+    file: "Cinzel-Regular.ttf"
+    sizeMm: 6.0
+  body:
+    file: "Cinzel-Regular.ttf"
+    sizeMm: 3.5
+
+layout:
+  paddingMm: 4
+  iconBoxMm: 14
+  metaBlock:
+    lineSpacingMm: 4.2
+    maxLines: 3
+
+border:
+  longSide:
+    leftCap: "viking_longside_cap_left.svg"
+    tile: "viking_longside_tile.svg"
+    rightCap: "viking_longside_cap_right.svg"
+    tileAdvanceMm: 8
+    overlapMm: 0.2
+    mirrorEveryOther: true
