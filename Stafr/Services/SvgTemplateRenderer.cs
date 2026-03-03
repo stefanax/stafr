@@ -3,6 +3,8 @@ using Stafr.Models;
 
 namespace Stafr.Services;
 
+//TODO: This is probably obsolete for now. I'll keep it until I know...
+
 public sealed class SvgTemplateRenderer
 {
     public string Render(string template, PatternMetadata metadata)

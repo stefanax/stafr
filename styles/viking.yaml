@@ -4,23 +4,23 @@ version: 1
 fonts:
   heading:
     file: "Cinzel-Regular.ttf"
-    sizeMm: 6.0
+    size-mm: 6.0
   body:
     file: "Cinzel-Regular.ttf"
-    sizeMm: 3.5
+    size-mm: 3.5
 
 layout:
-  paddingMm: 4
-  iconBoxMm: 14
-  metaBlock:
-    lineSpacingMm: 4.2
-    maxLines: 3
+  padding-mm: 4
+  icon-box-mm: 14
+  meta-block:
+    line-spacing-mm: 4.2
+    max-lines: 3
 
 border:
-  longSide:
-    leftCap: "viking_longside_cap_left.svg"
+  long-side:
+    left-cap: "viking_longside_cap_left.svg"
     tile: "viking_longside_tile.svg"
-    rightCap: "viking_longside_cap_right.svg"
-    tileAdvanceMm: 8
-    overlapMm: 0.2
-    mirrorEveryOther: true
+    right-cap: "viking_longside_cap_right.svg"
+    tile-advance-mm: 8
+    overlap-mm: 0.2
+    mirror-every-other: true
