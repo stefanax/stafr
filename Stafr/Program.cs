@@ -35,7 +35,7 @@ if (!Directory.Exists(outputDirectory))
 var yaml = File.ReadAllText(inputPath);
 
 var deserializer = new DeserializerBuilder()
-    .WithNamingConvention(CamelCaseNamingConvention.Instance)
+    .WithNamingConvention(HyphenatedNamingConvention.Instance)
     .Build();
 
 var metadata = deserializer.Deserialize<PatternMetadata>(yaml);
