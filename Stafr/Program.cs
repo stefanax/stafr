@@ -38,13 +38,22 @@ var deserializer = new DeserializerBuilder()
     .WithNamingConvention(HyphenatedNamingConvention.Instance)
     .Build();
 
-var metadata = deserializer.Deserialize<PatternMetadata>(yaml);
+try
+{
+    var metadata = deserializer.Deserialize<PatternMetadata>(yaml);
+}
+catch (Exception e)
+{
+    Console.WriteLine(e);
+    Console.WriteLine("Inner: " + e.InnerException);
+    throw;
+}
 
 var svgTemplate = File.ReadAllText(templatePath);
 
 var renderer = new SvgTemplateRenderer();
-var result = renderer.Render(svgTemplate, metadata);
+//var result = renderer.Render(svgTemplate, metadata);
 
-File.WriteAllText(outputPath, result);
+//File.WriteAllText(outputPath, result);
 
 Console.WriteLine($"Generated: {outputPath}");
